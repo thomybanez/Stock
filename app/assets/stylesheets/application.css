@@ -14,28 +14,34 @@
  *= require_self
  */
 body {
-    background-color: #944545;
+    color: white;
+    background-color: #000000;
     margin: 0;
     padding: 0;
+    height: 100%;
   }
+
+body a{
+    color: white;
+}
 
 .navbar{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: rgb(31, 31, 36);
     font-family: Lato;
     font-size: 1em;
     font-weight: 600;
     padding: 2vh;
+    margin: 0px;
 }
 
 .navbar-item {    
     list-style-type: none;
-    margin: 0px 5vw; 
+    margin: 0px 2vw;
 }
 
 .navbar a{
-    color: white;
     text-decoration: none;
     padding: 2vh;    
 }
@@ -44,23 +50,23 @@ body {
     color: rgb(163, 159, 159);    
 }
 
-.user-profile{
-    color: rgb(255, 255, 255);
-    border: 2px solid green;
-    width: 20vw;
-}
-
-.user-details{
-    border: 2px solid pink;
-}
-
-.user-wrapper{
+.wrapper{
     display: flex;
+    flex-direction: column;
+    min-height: 100vmin;
+}
+
+.main{
+    flex: 0.7;
+}
+
+footer{
+    margin-top: auto;
+}
+
+.signup-wrapper{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    border: 2px solid red;
+    height: 90vmin;
 }
-
-.form-user-details{
-    color: white;
-}
-
