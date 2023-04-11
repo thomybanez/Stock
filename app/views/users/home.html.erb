@@ -14,12 +14,8 @@
 <% @users.each do |user| %>
     <div class="user-profile">
       <p class="user-details"><%= user.username %></p>
-      <p class="user-details"><%= user.firstname %></p>
-      <p class="user-details"><%= user.middlename %></p>
-      <p class="user-details"><%= user.lastname %></p>
       <p class="user-details"><%= user.email %></p>
-      <p class="user-details"><%= user.birthday %></p>
-      <p class="user-details"><%= user.contact %></p>
+      <p class="user-details"><%= user.password %></p>
     </div>
 <% end %>
 </div>
