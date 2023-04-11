@@ -16,6 +16,27 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="wrapper">
+    <header>
+    <nav>
+        <ul class="navbar">
+            <li class="navbar-item"><%= link_to "Home" %></li>
+            <li class="navbar-item"><%= link_to "Market"%></li>
+            <li class="navbar-item"><%= link_to "Trade/Portfolio" %></li>
+            <li class="navbar-item"><%= link_to "Transaction"%></li>
+            <li class="navbar-item"><%= link_to "Signup", signup_path %></li>
+        </ul>
+    </nav>
+    </header>
+
+    <div class="main">
+        <%= yield %>
+    </div>
+
+    <footer>
+    All Rights Reserved
+    </footer>
+
+  </div>
   </body>
 </html>

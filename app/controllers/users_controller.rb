@@ -5,14 +5,11 @@ class UsersController < ApplicationController
         @users = User.all
     end 
 
-    def signup
-        @users = User.new       
+    def signup     
     end
 
     def create
-        @user = User.new(user_params)
-        @user.save
- 
+        @users = User.create(user_params)
     end
 
     private
@@ -20,7 +17,7 @@ class UsersController < ApplicationController
     end
 
     def user_params        
-        params.permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password)
     end
 
 end
