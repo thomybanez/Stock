@@ -1,0 +1,25 @@
+<h1 style="color:white;">Home</h1>
+
+<nav>
+  <ul class="navbar">
+    <li class="navbar-item"><%= link_to "Home" %></li>
+    <li class="navbar-item"><%= link_to "Market"%></li>
+    <li class="navbar-item"><%= link_to "Trade/Portfolio" %></li>
+    <li class="navbar-item"><%= link_to "Transaction"%></li>
+    <li class="navbar-item"><%= link_to "Signup", signup_path %></li>
+  </ul>
+</nav>
+
+<div class="user-wrapper">
+<% @users.each do |user| %>
+    <div class="user-profile">
+      <p class="user-details"><%= user.username %></p>
+      <p class="user-details"><%= user.firstname %></p>
+      <p class="user-details"><%= user.middlename %></p>
+      <p class="user-details"><%= user.lastname %></p>
+      <p class="user-details"><%= user.email %></p>
+      <p class="user-details"><%= user.birthday %></p>
+      <p class="user-details"><%= user.contact %></p>
+    </div>
+<% end %>
+</div>
