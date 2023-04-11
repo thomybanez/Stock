@@ -1,20 +1,3 @@
-<h1 style="color:white;">New User</h1>
-
-<nav>
-  <ul class="navbar">
-    <li class="navbar-item"><%= link_to "Home" %></li>
-    <li class="navbar-item"><%= link_to "Market"%></li>
-    <li class="navbar-item"><%= link_to "Trade/Portfolio" %></li>
-    <li class="navbar-item"><%= link_to "Transaction"%></li>
-    <li class="navbar-item"><%= link_to "Signup", signup_path %></li>
-  </ul>
-</nav>
-
-
-<%= render "signup", users: @users %>
-
-<br>
-
-<div>
-  <%= link_to "Back to friends" %>
+<div class="signup-wrapper">
+    <%= render "signup", users: @users %>
 </div>
