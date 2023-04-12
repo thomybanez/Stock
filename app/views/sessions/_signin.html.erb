@@ -1,0 +1,19 @@
+<div>
+<h1>Signin</h1>
+<%= form_with(scope: :user, url: sessions_signin_authenticate_path) do |form| %>
+  
+  <p>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_field :username %>
+  </p>
+
+  <p>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>

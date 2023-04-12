@@ -1,22 +1,24 @@
+<div>
 <h1>Signup</h1>
-<%= form_with(model: @user, url: create_path, method: "post") do |form| %>
+<%= form_with(scope: :user, url: sessions_signup_submit_path) do |form| %>
   
-  <div class="form-user-details">
+  <p>
     <%= form.label :username, style: "display: block" %>
     <%= form.text_field :username %>
-  </div>
+  </p>
 
-  <div class="form-user-details">
+  <p>
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
-  </div>
+  </p>
   
-  <div class="form-user-details">
+  <p>
     <%= form.label :password, style: "display: block" %>
     <%= form.text_field :password %>
-  </div>  
+  </p>  
 
-  <div class="form-user-details">
+  <p>
     <%= form.submit %>
-  </div>
+  </p>
 <% end %>
+</div>
