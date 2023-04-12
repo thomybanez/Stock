@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#signup', as: 'signup'
   post '/create', to: 'users#create', as: 'create'
 
+  get '/market', to: 'trades#market', as: 'market'
+  get '/trade', to: 'trades#trade', as: 'trade'
+  post '/execute', to: 'trades#execute', as: 'execute'
+
 end
