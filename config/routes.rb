@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   post '/signup/submit', to: 'sessions#signup_submit', as: 'sessions_signup_submit'
 
 
+  get '/market', to: 'trades#market', as: 'market'
+  get '/trade', to: 'trades#trade', as: 'trade'
+  post '/execute', to: 'trades#execute', as: 'execute'
+
 end
