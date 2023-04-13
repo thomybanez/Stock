@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   #Admin
   get '/admin', to: 'admins#home', as: 'admins_home'
+  post '/admin/verify', to: 'admins#verify', as: 'admins_verify'
 
   #Sessions
   get '/signin', to: 'sessions#signin', as: 'sessions_signin'
