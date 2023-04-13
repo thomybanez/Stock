@@ -1,19 +1,30 @@
+<div style="display:flex; flex-direction:column;">
+<p style="color:white;">
+  <%= params.inspect %>
+  <% params.each_pair do |key, value| %>
+    <%= "#{key}: #{value}" %>
+  <% end %>
+</p>
+
 <div>
-<h1>Signin</h1>
+<h1 class="form-header">Signin</h1>
 <%= form_with(scope: :user, url: sessions_signin_authenticate_path) do |form| %>
+
   
-  <p>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
-  </p>
+  
+  <div class="form-body">
+    <%= form.label "Email Address", class: "form-label" %>
+    <%= form.text_field :email, placeholder: "Please enter your email address", autocomplete: "off", class: "form-control" %>
+  </div>
 
-  <p>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </p>
+  <div class="form-body">
+    <%= form.label "Password", class: "form-label" %>
+    <%= form.password_field :password, placeholder: "Please enter your password", autocomplete: "off", class: "form-control" %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="form-flex">
+    <%= form.submit "Login", class: "form-submit" %>
+  </div>
 <% end %>
+</div>
 </div>

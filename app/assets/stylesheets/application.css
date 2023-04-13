@@ -27,18 +27,20 @@ body a{
 
 .navbar{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: rgb(31, 31, 36);
     font-family: Lato;
     font-size: 1em;
     font-weight: 600;
-    padding: 2vh;
     margin: 0px;
 }
 
-.navbar-item {    
+.navbar-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
-    margin: 0px 2vw;
+    margin: 0px 1vw;
 }
 
 .navbar a{
@@ -77,4 +79,16 @@ h1{
 
 p{
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons-wrapper-right{
+    display: flex;
+}
+
+.buttons-wrapper-left{
+    display: flex;
+}
+
+.focus-light{
+    background-color: green;
 }

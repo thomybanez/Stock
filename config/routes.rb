@@ -1,6 +1,7 @@
 Rails.application.routes.draw do 
   root "users#home"
 
+  get '/home', to: 'users#home', as: 'users_home'
 
   #Sessions
   get '/signin', to: 'sessions#signin', as: 'sessions_signin'
