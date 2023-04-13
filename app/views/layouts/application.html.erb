@@ -9,6 +9,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "forms", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "flash", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
@@ -36,6 +37,7 @@
     </header>
 
     <div class="main">
+    <%= render partial: 'shared/flash' %>
         <%= yield %>
     </div>
 
