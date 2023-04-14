@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   get '/trade', to: 'trades#trade', as: 'trade'
   post '/execute', to: 'trades#execute', as: 'execute'
 
+  get 'balance_form', to: 'wallets#balance_form', as: 'balance_form'
+  post '/subtract_balance', to: 'wallets#subtract_balance', as: 'subtract_balance'
+  post '/add_balance', to: 'wallets#add_balance', as: 'add_balance'
+
+
 end
