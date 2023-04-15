@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/admin', to: 'admins#home', as: 'admins_home'
   post '/admin/verify', to: 'admins#verify', as: 'admins_verify'
 
+  get '/user', to: 'admins#user', as: 'admins_user'
+
   #Sessions
   get '/signin', to: 'sessions#signin', as: 'sessions_signin'
   post '/signin/authenticate', to: 'sessions#signin_authenticate', as: 'sessions_signin_authenticate'

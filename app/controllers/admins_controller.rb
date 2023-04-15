@@ -1,7 +1,11 @@
 class AdminsController < ApplicationController
     def home
         @user = User.all
-      end  
+      end
+
+    def user
+        @user = User.all
+    end
     
 
     def verify

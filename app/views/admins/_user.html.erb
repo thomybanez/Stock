@@ -1,0 +1,7 @@
+<% if @user %>
+  <% @user.each do |user| %>
+    <%= user.email %>
+    <%= user.is_verified %>
+    <%= user.is_admin %><br>
+  <% end %>
+<% end %>
