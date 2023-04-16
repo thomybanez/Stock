@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   get '/home', to: 'users#home', as: 'users_home'
 
   #Admin
-  get '/admin', to: 'admins#home', as: 'admins_home'
-  post '/admin/verify', to: 'admins#verify', as: 'admins_verify'
+  get '/admin', to: 'admins#admin', as: 'admins_admin'
+  get '/admin/view/:id', to: 'admins#user_view', as: 'admins_user_view'
+  post '/admin/verify/:id', to: 'admins#user_verify', as: 'admins_user_verify'
 
-  get '/user', to: 'admins#user', as: 'admins_user'
+
+
+
+
+
 
   #Sessions
   get '/signin', to: 'sessions#signin', as: 'sessions_signin'

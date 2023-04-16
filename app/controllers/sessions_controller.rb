@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     def signin_authenticate 
       @user = User.new(email: login_params[:email], password: login_params[:password])
       if @user.email.empty? 
-        flash[:alert] = "Email can't be blank"
-        redirect_to sessions_signin_authenticate_path(email: login_params[:email])
+        flash[:alert] = "Email can't be blank"        
+        redirect_to sessions_signin_authenticate_path(email:login_params[:email])
       elsif @user.password.blank?
-        flash[:alert] = "Password can't be blank"
+        flash[:alert] = "Password can't be blank"        
         redirect_to sessions_signin_authenticate_path
       else
         @user = User.find_by(email: login_params[:email])

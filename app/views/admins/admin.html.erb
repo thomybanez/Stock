@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Email Address</th>
+      <th>Verified</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.each do |user| %>
+      <tr>
+        <td><a href="<%= admins_user_view_path(user) %>"><%= user.email %></a></td>
+        <td><%= user.is_verified %></td>
+        <td><%= user.is_admin %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
