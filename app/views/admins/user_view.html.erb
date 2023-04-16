@@ -22,8 +22,13 @@
 </table>
 
 <div class="layout-content-button">
-<p><%= button_to "Edit", admins_user_verify_path, {class:"layout-button-edit"} %></p>
-<p><%= button_to "Verify", admins_user_verify_path, {class:"layout-button-verify"} %></p>
+<p><%= link_to "Edit", admins_user_edit_path, {class:"layout-button-edit"} %></p>
+
+<% if @user.is_verified %>
+<p><%= button_to "Un-verify", admins_user_verify_path, {class:"layout-button-verify-false"} %></p>
+<% else %>
+<p><%= button_to "Verify", admins_user_verify_path, {class:"layout-button-verify-true"} %></p>
+<% end %>
 </div>
 
 <%= link_to "back", admins_admin_path %>

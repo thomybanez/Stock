@@ -18,16 +18,35 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 12vw;
+    width: 15vw;
     height: 15vh;    
 }
 
-.layout-button-verify{
+.layout-button-verify-true{
     padding: 1.1vh 1.1vw;
     color: white;
-    background-color: transparent;
-    border: 2px solid rgb(135, 221, 132);
-    border-radius: 10px;    
+    background-color: rgb(5, 100, 0);
+    border: 2px solid rgb(0, 95, 0);
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.layout-button-verify-false{
+    padding: 1.1vh 1.1vw;
+    color: white;
+    background-color: rgb(160, 0, 0);
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.layout-button-save{
+    padding: 1.1vh 1.1vw;
+    color: white;
+    background-color: rgb(5, 100, 0);
+    border: 2px solid rgb(0, 95, 0);
+    border-radius: 10px;
+    font-size: 1em;
 }
 
 .layout-button-edit{
@@ -38,12 +57,22 @@
     border-radius: 10px;    
 }
 
-.layout-button-verify:hover{
-    background-color: rgb(57, 223, 35);
-    color: rgb(6, 65, 6);
+.layout-button-verify-true:hover{
+    background-color: rgb(20, 200, 0);
+    color: rgb(0, 0, 0);
+}
+
+.layout-button-verify-false:hover{
+    background-color: rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .layout-button-edit:hover{
     background-color: white;
     color: black;
+}
+
+.layout-button-save:hover{
+    background-color: rgb(20, 200, 0);
+    color: rgb(0, 0, 0);
 }

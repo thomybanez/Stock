@@ -11,6 +11,13 @@ class AdminsController < ApplicationController
 
   #2: As an Admin, I want to edit a specific user to update his/her details.
     def user_edit
+      @user = User.find_by(id: params[:id])
+    end
+
+    def user_update
+      @user = User.find_by(id: params[:id])
+      @user.update(user_update_params)
+      redirect_to admins_user_view_path
     end
 
   #3: As an Admin, I want to view a specific user to show his/her details.
@@ -28,18 +35,23 @@ class AdminsController < ApplicationController
       else
       flash[:alert] = "User unverified"
       end
-
       redirect_to admins_user_view_path
     end
 
   #6: As an Admin, I want to have a page for pending trader sign ups to easily check if there's a new trader sign up.
     def user_pending
+
     end
 
   #7: As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the application.
     def user_transactions
     end
 
+
+    private
+    def user_update_params
+      params.require(:user).permit(:email)
+    end
 
 
 end

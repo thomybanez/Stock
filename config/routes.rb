@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/admin/view/:id', to: 'admins#user_view', as: 'admins_user_view'
   post '/admin/verify/:id', to: 'admins#user_verify', as: 'admins_user_verify'
 
+  get '/admin/edit/:id', to: 'admins#user_edit', as: 'admins_user_edit'
+  patch '/admin/update/:id', to: 'admins#user_update', as: 'admins_user_update'
+
 
 
 
