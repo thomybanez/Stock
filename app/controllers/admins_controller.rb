@@ -16,8 +16,12 @@ class AdminsController < ApplicationController
 
     def user_update
       @user = User.find_by(id: params[:id])
-      @user.update(user_update_params)
+      if @user.update(user_update_params)
       redirect_to admins_user_view_path
+      else
+        flash[:alert] = "Invalid email format"
+        redirect_to admins_user_edit_path
+      end
     end
 
   #3: As an Admin, I want to view a specific user to show his/her details.
@@ -30,17 +34,26 @@ class AdminsController < ApplicationController
       @user = User.find(params[:id])
       @user.update(is_verified: !@user.is_verified)
 
-      if @user.is_verified == true
-      flash[:notice] = "User verified"
-      else
-      flash[:alert] = "User unverified"
-      end
+        if @user.is_verified == true
+          flash[:notice] = "User verified"
+        else
+          flash[:alert] = "User unverified"
+        end
       redirect_to admins_user_view_path
     end
 
   #6: As an Admin, I want to have a page for pending trader sign ups to easily check if there's a new trader sign up.
-    def user_pending
-
+    def user_sort
+      @user = User.all
+        if params[:status] == "pending"          
+          #flash[:alert] = "Viewing Pending Accounts"
+          @user = @user.where(is_verified: false)
+   
+        elsif params[:status] == "verified"
+          #flash[:notice] = "Viewing Verified Accounts"
+          @user = @user.where(is_verified: true)  
+        end
+        render "user_sort"
     end
 
   #7: As an Admin, I want to see all the transactions so that I can monitor the transaction flow of the application.

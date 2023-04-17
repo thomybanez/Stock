@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get '/admin/edit/:id', to: 'admins#user_edit', as: 'admins_user_edit'
   patch '/admin/update/:id', to: 'admins#user_update', as: 'admins_user_update'
 
+  post '/admin', to: 'admins#user_sort', as: 'admins_user_sort'
+
+  
+
 
 
 
