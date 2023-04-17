@@ -1,2 +1,53 @@
-Add Users
-Forms
+<div>
+    <h1 class="form-header">Add Users Manually</h1>    
+    
+        <%= form_with(scope: :user, url: admins_user_add_submit_path)do |form| %>
+
+        <div class="form-body">
+              <%= form.label "Email Address", class: "form-label" %>    
+              <%= form.text_field :email, placeholder: "Please enter user's email address", autocomplete: "off", class: "form-control" %>
+                  <div style="display:flex;">
+                    <% if @user.errors.any? %>
+                        <% @user.errors.full_messages_for(:email).each do |msg| %>
+                          <li class="error"> <%= msg %> &nbsp</li>
+                        <% end %>
+                    <% end %>
+                  </div>
+            </div>  
+        
+        <div class="form-body">
+            <%= form.label "Password", class: "form-label" %>
+            <%= form.password_field :password, placeholder: "Please enter user's preferred password", autocomplete: "off", class: "form-control" %>
+                <div style="overflow: hidden;">
+                    <% if @user.errors.any? %>
+                        <% @user.errors.full_messages_for(:password).uniq.each do |msg| %>
+                        <li class="error"><%= msg %></li>
+                        <% end %>
+                        <% @user.errors.full_messages_for(:password_confirmation).uniq.each do |msg| %>
+                        <li class="error"><%= msg %></li>
+                        <% end %>
+                    <% end %>                      
+                </div>
+            </div>
+
+        <div class="form-body">
+            <%= form.label "Confirm Password", class: "form-label" %>
+            <%= form.password_field :password_confirmation, placeholder: "Please confirm user's preferred password", autocomplete: "off", class: "form-control" %>
+                <div style="overflow: hidden;">
+                    <% if @user.errors.any? %>
+                        <% @user.errors.full_messages_for(:password).uniq.each do |msg| %>
+                        <li class="error"><%= msg %></li>
+                        <% end %>
+                        <% @user.errors.full_messages_for(:password_confirmation).uniq.each do |msg| %>
+                        <li class="error"><%= msg %></li>
+                        <% end %>
+                    <% end %>                      
+                </div>
+            </div>
+        
+            <div class="form-flex">
+              <%= form.submit "Add User", class:"form-submit signup-submit-color"%>
+            </div>
+        <% end %>
+    </div>
+</div>

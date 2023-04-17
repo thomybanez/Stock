@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   patch '/admin/update/:id', to: 'admins#user_update', as: 'admins_user_update'
 
   post '/admin', to: 'admins#user_sort', as: 'admins_user_sort'
+  
+  get '/admin/add', to: 'admins#user_add', as: 'admins_user_add'
+  post '/admin/add/submit', to: 'admins#user_add_submit', as: 'admins_user_add_submit'
 
   
 
