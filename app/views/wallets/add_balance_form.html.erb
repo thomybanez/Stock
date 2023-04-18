@@ -1,0 +1,8 @@
+<h1>Add form</h1>
+
+<% form_with scope: :wallet, url: add_balance_form_path do |f| %>
+    <%= f.label :balance %>
+    <%= f.text_field :balance %>
+    <%= link_to "Return to Home Page" ,market_path%>
+<% end %>
+

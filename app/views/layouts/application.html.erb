@@ -24,7 +24,7 @@
     <nav>
         <ul class="navbar">
             <div class="buttons-wrapper-left">
-              <li class="navbar-item"><%= link_to "Home" %></li>
+              <li class="navbar-item"><%= link_to "Home", users_home_path %></li>
               <li class="navbar-item"><%= link_to "Market"%></li>
               <li class="navbar-item"><%= link_to "Trade/Portfolio" %></li>
               <li class="navbar-item"><%= link_to "Transaction"%></li>
@@ -40,7 +40,7 @@
 
     <div class="main">
     <%= render partial: 'shared/flash' %>
-        <%= yield %>
+      <%= yield %>
     </div>
 
     <footer>
