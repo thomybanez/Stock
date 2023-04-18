@@ -1,5 +1,7 @@
+<% if session[:user_id] %>
 Welcome <%= @user.email %>
 Balance <%= @user.wallet.balance %>
+<% end %>
 
 
 
