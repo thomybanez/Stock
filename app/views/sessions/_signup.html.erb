@@ -1,24 +1,53 @@
 <div>
-<h1>Signup</h1>
-<%= form_with(scope: :user, url: sessions_signup_submit_path) do |form| %>
-  
-  <p>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
-  </p>
+      <h1 class="form-header">Create Account</h1>      
 
-  <p>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </p>
-  
-  <p>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
-  </p>  
+          <%= form_with(scope: :user, url: sessions_signup_submit_path) do |form| %>
+            
+            <div class="form-body">
+              <%= form.label "Email Address", class: "form-label" %>    
+              <%= form.text_field :email, placeholder: "Please enter your email address", autocomplete: "off", class: "form-control" %>
+                  <div style="display:flex;">
+                    <% if @user.errors.any? %>
+                        <% @user.errors.full_messages_for(:email).each do |msg| %>
+                          <li class="error"> <%= msg %> &nbsp</li>
+                        <% end %>
+                    <% end %>
+                  </div>
+            </div>  
 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-</div>
+            <div class="form-body">
+              <%= form.label "Password", class: "form-label" %>
+              <%= form.password_field :password, placeholder: "Please enter your password", autocomplete: "off", class: "form-control" %>
+                  <div style="overflow: hidden;">
+                      <% if @user.errors.any? %>
+                          <% @user.errors.full_messages_for(:password).uniq.each do |msg| %>
+                            <li class="error"><%= msg %></li>
+                          <% end %>
+                          <% @user.errors.full_messages_for(:password_confirmation).uniq.each do |msg| %>
+                            <li class="error"><%= msg %></li>
+                          <% end %>
+                      <% end %>                      
+                  </div>
+            </div>
+
+            <div class="form-body">
+              <%= form.label "Confirm Password", class: "form-label" %>
+              <%= form.password_field :password_confirmation, placeholder: "Please confirm your password", autocomplete: "off", class: "form-control" %>
+                  <div style="overflow: hidden;">
+                      <% if @user.errors.any? %>
+                          <% @user.errors.full_messages_for(:password).uniq.each do |msg| %>
+                            <li class="error"><%= msg %></li>
+                          <% end %>
+                          <% @user.errors.full_messages_for(:password_confirmation).uniq.each do |msg| %>
+                            <li class="error"><%= msg %></li>
+                          <% end %>
+                      <% end %>                      
+                  </div>
+            </div>
+            
+            <div class="form-flex">
+              <%= form.submit "Sign Up", class:"form-submit signup-submit-color"%>
+            </div>
+          <% end %>
+  </div>
+  

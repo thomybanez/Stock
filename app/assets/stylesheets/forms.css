@@ -1,0 +1,61 @@
+.form-control{
+    width: 300px;
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid rgb(125, 125, 125);
+    text-align: center;
+    font-size: 1em;
+}
+
+.form-label{
+    font-size: 0.8em;
+    display: block;
+    opacity: 0.5;
+}
+
+.form-submit{
+    color: white;
+    background-color: green;
+    width: 300px;
+    height: 40px;
+    border-radius: 7px;
+    border: 1px solid rgb(125, 125, 125);
+}
+
+.form-submit:hover{
+    background-color: rgb(0, 160, 0);
+}
+
+.form-flex{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;  
+}
+
+.form-header{
+    font-size: 2em;
+    font-weight: 400;
+    margin: 0;
+    padding: 3vh 0;    
+}
+
+.form-body{
+    height: 90px;
+    overflow: hidden;
+}
+
+.signup-submit-color{
+    background-color: black;
+}
+
+.signup-submit-color:hover{
+    background-color: rgb(65, 65, 65);
+}
+
+.error{
+    color: red;
+    font-size: 0.8em;
+    position: static;
+    list-style-type: none;
+  }

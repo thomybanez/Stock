@@ -1,0 +1,95 @@
+.layout-pages{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.layout-table-head{
+    margin: 0;
+    padding: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    color: rgb(212, 202, 202);
+}
+
+.layout-content-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15vw;
+    height: 15vh;    
+}
+
+.layout-button-verify-true{
+    padding: 1.1vh 1.1vw;
+    color: white;
+    background-color: rgb(5, 100, 0);
+    border: 2px solid rgb(0, 95, 0);
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.layout-button-verify-false{
+    padding: 1.1vh 1.1vw;
+    color: white;
+    background-color: rgb(160, 0, 0);
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.layout-button-save{
+    padding: 1.1vh 1.1vw;
+    color: white;
+    background-color: rgb(5, 100, 0);
+    border: 2px solid rgb(0, 95, 0);
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+.layout-button-edit{
+    padding: 1.1vh 1.1vw;
+    color: white;
+    background-color: transparent;
+    border: 2px solid rgb(214, 214, 214);
+    border-radius: 10px;    
+}
+
+.layout-button-verify-true:hover{
+    background-color: rgb(20, 200, 0);
+    color: rgb(0, 0, 0);
+}
+
+.layout-button-verify-false:hover{
+    background-color: rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
+.layout-button-edit:hover{
+    background-color: white;
+    color: black;
+}
+
+.layout-button-save:hover{
+    background-color: rgb(20, 200, 0);
+    color: rgb(0, 0, 0);
+}
+
+.layout-data{
+    padding: 0;
+    margin: 0;
+}
+
+.layout-data:hover{
+    border: 5px solid gray;
+    background-color: gray;
+}
+
+.layout-admin-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
