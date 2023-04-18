@@ -2,7 +2,7 @@
 
 <% if @transaction_type === 'withdraw' %>
 
-    <h1>Withdraw</h1>
+    <h1><%= @transaction_type %></h1>
     Balance <%= @wallet %>  
 
     <%= form_with scope: :wallet, url: subtract_balance_path do |f| %>

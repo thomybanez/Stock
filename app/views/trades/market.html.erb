@@ -16,11 +16,11 @@
                 <td><%= coin["market_cap_rank"] %></td>
                 <td>
                 <%= coin["name"] %>
-                <%= coin["symbol"] %></td>
+                <%= coin["symbol"].upcase %></td>
                 <td><%= coin['current_price'] %></td>
-                <td><%= coin['price_change_percentage_24h'] %></td>
-                <td><%= coin['total_volume'] %></td>
-                <td><%= link_to 'Trade', trade_path %></td>
+                <td><%= coin['price_change_percentage_24h'] %><span>%</span></td>
+                <td><%= number_to_human(coin['total_volume']) %></td>
+                <td><%= link_to 'Trade', trade_path(coin_price: coin['current_price'], coin_name: coin['name']) %></td>
             </tr>
         <% end %>
     </tbody>

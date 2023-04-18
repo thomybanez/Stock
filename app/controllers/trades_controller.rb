@@ -9,4 +9,8 @@ class TradesController < ApplicationController
 
     def execute
     end
+
+    private
+    def coin_params
+    end
 end
