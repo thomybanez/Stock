@@ -1,8 +1,7 @@
 class TradesController < ApplicationController
     
     def market
-        @api = CoinGecko::Client.retrieve_coin[:data]
-        
+        @api = CoinGecko::Client.retrieve_coin[:data]     
     end
 
     def trade

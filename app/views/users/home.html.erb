@@ -1,0 +1,9 @@
+
+<%= link_to 'Withdraw', new_path(transaction_type: 'withdraw') %>
+<%= link_to 'Deposit', new_path(transaction_type: 'deposit') %>
+<% if @wallet === nil %>
+    <%= button_to 'Create Wallet', create_path, method: "post" %>
+<% end %>
+<% if @wallet %>
+    <%= @wallet.balance %>
+<% end %>

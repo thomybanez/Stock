@@ -1,0 +1,20 @@
+
+<%= form_with(scope: :trade, url: trade_path) do |form| %>
+  
+    <p>
+      <%= {coin.name}, style: "display: block" %>
+    </p>
+    <p>
+      <%= form.label {coin.price}, style: "display: block" %>
+      <%= form.number_field {coin.price} %>
+    </p>
+  
+    <p>
+      <%= form.label {size}, style: "display: block" %>
+      <%= form.text_field {size} %>
+    </p>
+  
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>

@@ -1,0 +1,21 @@
+
+
+<% if @transaction_type === 'withdraw' %>
+    <h1>Withdraw</h1>
+    <%= form_with scope: :wallet, url: subtract_balance_path do |f| %>
+        <%= f.label :amount %>
+        <%= f.text_field :amount %>
+        <%= f.submit 'Withdraw' %>
+    <% end %>
+    <%= link_to 'Home', home_path %>
+<% end %>
+
+<% if @transaction_type === 'deposit' %>
+    <h1>Deposit</h1>
+    <%= form_with scope: :wallet, url: add_balance_path do |f| %>
+        <%= f.label :amount %>
+        <%= f.text_field :amount %>
+        <%= f.submit 'Deposit' %>
+    <% end %>
+    <%= link_to 'Home', home_path %>
+<% end %>
