@@ -92,6 +92,11 @@ p{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+td{
+    padding: 0;
+    margin: 0;
+}
+
 .buttons-wrapper-right{
     display: flex;
 }
