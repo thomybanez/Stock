@@ -1,3 +1,7 @@
+<%= session[:user_id] %>
+<%= @user.wallet.balance %>
+
+
 
 <%= link_to 'Withdraw', new_path(transaction_type: 'withdraw') %>
 <%= link_to 'Deposit', new_path(transaction_type: 'deposit') %>

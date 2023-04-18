@@ -8,12 +8,16 @@ class SessionsController < ApplicationController
       if @user.email.empty? 
         flash[:alert] = "Email can't be blank"        
         redirect_to sessions_signin_authenticate_path
+
       elsif @user.password.blank?
         flash[:alert] = "Password can't be blank"        
         redirect_to sessions_signin_authenticate_path
-      else
+
+      else        
         @user = User.find_by(email: login_params[:email])
         if @user && @user.authenticate(login_params[:password])
+          session[:user_id] = @user.id
+          flash[:notice] = "Login Successful"
           redirect_to users_home_path
         else 
           flash[:alert] = "Password is invalid"
