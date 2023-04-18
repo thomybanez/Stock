@@ -1,0 +1,27 @@
+<table>
+    <span>Data provided by <a href="https://www.coingecko.com/">CoinGecko</a></span>
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Coin</th>
+            <th>Price</th>
+            <th>24h</th>
+            <th>24h Volume</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @api.each do |coin| %>
+            <tr>
+                <td><%= coin["market_cap_rank"] %></td>
+                <td>
+                <%= coin["name"] %>
+                <%= coin["symbol"] %></td>
+                <td><%= coin['current_price'] %></td>
+                <td><%= coin['price_change_percentage_24h'] %></td>
+                <td><%= coin['total_volume'] %></td>
+                <td><%= link_to 'Trade', trade_path %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
