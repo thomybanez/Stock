@@ -16,6 +16,10 @@ class WalletsController < ApplicationController
 
     #user balance type of transaction
     def new
+        user_id = session[:user_id]
+        @user = User.find_by(id: user_id)
+
+
         @transaction_type = params[:transaction_type]
         @wallet = Wallet.new(transaction_type: @transaction_type)
     end
