@@ -8,6 +8,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "forms", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "flash", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "pages", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
@@ -20,17 +23,24 @@
     <header>
     <nav>
         <ul class="navbar">
-            <li class="navbar-item"><%= link_to "Home" %></li>
-            <li class="navbar-item"><%= link_to "Market"%></li>
-            <li class="navbar-item"><%= link_to "Trade/Portfolio" %></li>
-            <li class="navbar-item"><%= link_to "Transaction"%></li>
-            <li class="navbar-item"><%= link_to "Signup", sessions_signup_path %></li>
+            <div class="buttons-wrapper-left">
+              <li class="navbar-item"><%= link_to "Home", users_home_path %></li>
+              <li class="navbar-item"><%= link_to "Market", market_path%></li>
+              <li class="navbar-item"><%= link_to "Trade/Portfolio" %></li>
+              <li class="navbar-item"><%= link_to "Transaction"%></li>
+            </div>
+            <div class="buttons-wrapper-right">
+              <li class="navbar-item"><%= link_to "Admin", admins_admin_path %></li>
+              <li class="navbar-item focus-light"><%= link_to "Signin", sessions_signin_path %></li>
+              <li class="navbar-item"><%= link_to "Signup", sessions_signup_path %></li>              
+            <div>
         </ul>
     </nav>
     </header>
 
     <div class="main">
-        <%= yield %>
+    <%= render partial: 'shared/flash' %>
+      <%= yield %>
     </div>
 
     <footer>

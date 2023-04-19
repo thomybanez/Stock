@@ -1,0 +1,31 @@
+<div class="layout-pages">
+<h1>Registered Accounts</h1>
+    <div>
+        <div class="layout-admin-button">
+            <%= form_with url: admins_user_sort_path do |form| %>
+                <%= form.label "sort by: " %>
+                <%= form.select :status, options_for_select([["All", "all"], ["Pending", "pending"], ["Verified", "verified"]], params[:status]), {}, { onchange: "this.form.submit();" } %>
+            <% end %>
+            <%= link_to "Add User", admins_user_add_path, {class:"layout-button-save"} %>
+        </div>
+
+            <table>
+            <thead>
+                <tr>
+                <th class="layout-table-head"><p>Email Address</p></th>
+                <th class="layout-table-head"><p>Verified</p></th>
+                <th class="layout-table-head"><p>Admin</p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @user.each do |user| %>
+                <tr class="layout-data">
+                    <td><a href="<%= admins_user_view_path(user) %>"><%= user.email %></a></td>
+                    <td><p><%= user.is_verified %></p></td>
+                    <td><p><%= user.is_admin %></p></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
+    </div>
+</div>
