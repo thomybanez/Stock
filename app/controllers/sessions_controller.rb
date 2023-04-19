@@ -42,6 +42,13 @@ class SessionsController < ApplicationController
         end
     end
 
+    def logout
+      session.delete(:user_id)
+      flash[:alert] = "Logged out successfully"
+      redirect_to sessions_signin_path
+    end
+
+
     private
 
     def user_params        
