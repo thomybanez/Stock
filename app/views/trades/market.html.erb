@@ -21,7 +21,7 @@
                 <td><span>$</span><%= coin['current_price'].round(4) %></td>
                 <td><%= coin['price_change_percentage_24h'].round(2) %><span>%</span></td>
                 <td><span>$</span><%= number_to_human(coin['total_volume']) %></td>
-                <td><%= link_to 'Trade', trade_path(coin_price: coin['current_price'], coin_id: coin['id']) %></td>
+                <td><%= link_to 'Trade', trade_path(entry_price: coin['current_price'], coin_id: coin['id']) %></td>
             </tr>
         <% end %>
     </tbody>
