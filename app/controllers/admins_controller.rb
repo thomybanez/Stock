@@ -3,6 +3,10 @@ class AdminsController < ApplicationController
   #4: As an Admin, I want to see all the users that registered in the app so I can track all the users.
     def admin
       @user = User.all.order(created_at: :desc)
+
+      if !@is_admin
+        redirect_to users_home_path
+      end
     end
 
   #1: As an Admin, I want to create a new user to manually add them to the app.
