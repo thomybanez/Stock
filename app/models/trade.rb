@@ -1,5 +1,8 @@
 class Trade < ApplicationRecord
-    def self.total_price(entry_price, size)
-        entry_price.to_f * size.to_f
+    belongs_to :user
+    after_save :buy
+    def buy
+        self.user.wallet.balance -= entry_price * size
+        self.user.wallet.save
     end
 end

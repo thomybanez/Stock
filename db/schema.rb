@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_19_033244) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_073016) do
+  create_table "positions", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "coin_id"
+    t.decimal "quantity"
+    t.decimal "average_entry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trades", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -19,6 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_033244) do
     t.string "coin_id"
     t.decimal "size", default: "0.0"
     t.boolean "is_ongoing", default: true
+    t.integer "user_id"
+    t.integer "position_id", null: false
+    t.index ["position_id"], name: "index_trades_on_position_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_033244) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "trades", "positions"
+  add_foreign_key "trades", "users"
 end
