@@ -4,12 +4,16 @@ class WalletsController < ApplicationController
     def add_balance
         wallet = User.find_by(id: session[:user_id]).wallet
         amount = params[:wallet][:amount].to_f
-        wallet.balance += amount
-        wallet.save
-        @wallet = wallet.reload
+        if amount === 0
+            flash[:alert] = "Please input an amount"
+        else
+            wallet.balance += amount
+            wallet.save
+            @wallet = wallet.reload
+        end
       
         if wallet.persisted?
-          flash[:notice] = "Yes"
+          flash[:notice] = "Amount deposited successfully!"
           redirect_to add_balance_path
         else
           flash[:alert] = "No"
@@ -20,12 +24,18 @@ class WalletsController < ApplicationController
     def subtract_balance
         wallet = User.find_by(id: session[:user_id]).wallet
         amount = params[:wallet][:amount].to_f
-        wallet.balance -= amount
-        wallet.save
-        @wallet = wallet.reload
+        if wallet.balance < amount
+            flash[:alert] = "Insufficient balance"
+        elsif amount === 0
+            flash[:alert] = "Please input an amount"
+        else
+            wallet.balance -= amount
+            wallet.save
+            @wallet = wallet.reload
+        end
       
         if wallet.persisted?
-          flash[:notice] = "Yes"
+          flash[:notice] = "Amount withdrawn successfully!"
           redirect_to subtract_balance_path
         else
           flash[:alert] = "No"
