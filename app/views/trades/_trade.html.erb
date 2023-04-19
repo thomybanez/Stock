@@ -1,19 +1,26 @@
 
-<%= form_with(scope: :trade, url: trade_path) do |form| %>
+<%= form_with(scope: :trade, url: execute_path) do |form| %>
+  
+  <%= @coin_id %>
+  <%= @entry_price %>
+  <% if session[:user_id] %>
+    <% if @user.wallet %>
+        Current Balance <%= @user.wallet.balance %>
+    <% end %>
+<% end %>
   
     <p>
-      <%= {coin.name}, style: "display: block" %>
+      <%= form.label :size, style: "display: block" %>
+      <%= form.number_field :size, step: :any %>
     </p>
-    <p>
-      <%= form.label {coin.price}, style: "display: block" %>
-      <%= form.number_field {coin.price} %>
+    <p style="display:none">
+      <%= form.label :coin_id, style: "display: block" %>
+      <%= form.text_field :coin_id, value:@coin_id %>
     </p>
-  
-    <p>
-      <%= form.label {size}, style: "display: block" %>
-      <%= form.text_field {size} %>
+    <p style="display:none">
+      <%= form.label :entry_price, style: "display: block" %>
+      <%= form.number_field :entry_price, value:@entry_price %>
     </p>
-  
     <p>
       <%= form.submit %>
     </p>

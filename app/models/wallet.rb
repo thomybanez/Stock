@@ -1,4 +1,6 @@
 class Wallet < ApplicationRecord
+    include ActionView::Helpers::NumberHelper
+
 
     belongs_to :user
 
