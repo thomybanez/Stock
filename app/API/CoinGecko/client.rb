@@ -9,7 +9,7 @@ module CoinGecko
         def self.retrieve_chart
             Request.call(
                 http_method:'get',
-                endpoint:'https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=30'
+                endpoint:'/coins/bitcoin/ohlc?vs_currency=usd&days=30'
             )
         end
     end

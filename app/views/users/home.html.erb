@@ -1,11 +1,53 @@
-<% if session[:user_id] %>
-    Welcome <%= @user.email %>
-    <% if @user.wallet %>
-        Balance <%= @user.wallet.balance %>
-    <% end %>
-<% end %>
+<div class='wallet-card'>
+    
+
+        <div class='wallet-text'>            
+            My Balance
+            <div class='wallet-button-wrapper'>
+                <div class='wallet-button' style="background-color:green;"><%= link_to 'Deposit', new_path(transaction_type: 'deposit') %></div>
+                <div class='wallet-button' style="background-color:transparent;"><%= link_to 'Withdraw', new_path(transaction_type: 'withdraw') %></div>
+            </div>
+        </div>
+        
+
+        <div class='wallet-card-inner'>
+
+            <div class='wallet-card-inner-left'>
+                <h6 class="opacity mt fs">Available Balance</h6>
+                <div>
+                    <span class='wallet-amount'>
+                        <% if @user.wallet %>
+                            ₱<%= number_with_delimiter(@user.wallet.balance.to_i) %>                        
+                        <% end %>
+                    </span>
+                
+                </div>
+            </div>      
 
 
 
-<%= link_to 'Withdraw', new_path(transaction_type: 'withdraw') %>
-<%= link_to 'Deposit', new_path(transaction_type: 'deposit') %>
+            <div class='wallet-card-inner-right'>
+                <h6 class="opacity" style="text-align:center; margin-top: 10px;">Transactions History</h6>
+                <div>
+                    Deposit Withdraw
+
+                    
+
+                <div>
+            </div>
+
+        </div>
+
+        
+
+</div>
+            
+
+
+
+
+        
+        
+
+
+</div>
