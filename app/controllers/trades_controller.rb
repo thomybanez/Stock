@@ -1,12 +1,13 @@
 class TradesController < ApplicationController
     before_action :set_user
-    before_action :set_position, only: [:execute]
+    before_action :set_position, only: [:trade, :execute]
     
     def market
         @api = CoinGecko::Client.retrieve_coin[:data]     
     end
 
     def trade
+        @api = CoinGecko::Client.retrieve_coin[:data]  
         @coin_id = params[:coin_id]
         @entry_price = params[:entry_price]
         @size = params[:size]
@@ -22,6 +23,10 @@ class TradesController < ApplicationController
         if @position && @position.quantity > 0
             puts "spa"
             @trade.position_id = @position.id
+            @position.quantity += @trade.size
+            @position.average_entry = ((@position.average_entry*(@position.quantity - @trade.size)+(@trade.entry_price*@trade.size))/@position.quantity)
+            @position.save
+            @position.reload
         else
             puts "spa2"
             new_position = Position.create(quantity: @trade.size, coin_id: @trade.coin_id, average_entry: @trade.entry_price, user_id: session[:user_id])
@@ -37,6 +42,7 @@ class TradesController < ApplicationController
 
     private
     def set_position
+        @position = Position.all
     end
 
     def set_user
