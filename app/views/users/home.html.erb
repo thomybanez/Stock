@@ -15,13 +15,14 @@
             <div class='wallet-card-inner-left'>
                 <h6 class="opacity mt fs">Available Balance</h6>
                 <div>
-                    <span class='wallet-amount'>
-                        <% if @user.wallet %>
-                            ₱<%= number_with_delimiter(@user.wallet.balance.to_i) %>                        
-                        <% end %>
-                    </span>
-                
-                </div>
+  <span class='wallet-amount'>
+    <% if @user.wallet %>
+      ₱<%= number_with_delimiter(@user.wallet.balance.to_i) %>
+    <% else %>
+      ₱0
+    <% end %>
+  </span>
+</div>
             </div>      
 
 

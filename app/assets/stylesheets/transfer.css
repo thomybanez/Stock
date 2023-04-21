@@ -1,0 +1,70 @@
+.transfer-text{
+    font-size: 2em;
+    font-family: Lato;
+    text-align: center;
+}
+
+.transfer-card{    
+    display:flex;
+    background-color: rgb(20, 20, 25);
+    height: 25vh;
+    width: 36vw;
+    border-radius: 20px;
+    margin: 10px;
+    border: 10px solid rgb(20, 20, 25);
+}
+
+.transfer-card-right{
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    ;
+
+}
+
+.transfer-card-left{
+    flex: 0.5;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.transfer-field{
+    width: 150px;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid rgb(125, 125, 125);
+    text-align: center;
+    font-size: 1em;
+}
+
+.transfer-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.transfer-in-money{
+    background-color: green;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    width: 7vw;
+    border-radius: 10px;
+    border: 2px solid green;    
+}
+
+.transfer-out-money{
+    background-color: red;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1em;
+    width: 7vw;
+    border-radius: 10px;
+    border: 2px solid red;    
+}
+
+.balance-text{
+    margin-top: 20vh;
+    font-size: 1.5em;
+}

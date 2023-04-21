@@ -1,30 +1,48 @@
 
 
 <% if @transaction_type === 'withdraw' %>
+<span class="balance-text">Balance</span>
+<span class='wallet-amount'>₱<%= number_with_delimiter(@user.wallet.balance.to_i) %></span>
 
-    <h1><%= @transaction_type %></h1>
-    Balance <%= @wallet %>  
-
-    <%= form_with scope: :wallet, url: subtract_balance_path do |f| %>
-        <%= f.label :amount %>
-        <%= f.text_field :amount %>
-        <%= f.submit 'Withdraw' %>
-    <% end %>
-    <%= link_to 'Home', users_home_path %>
+<div class="transfer-card">
+    <div class="transfer-card-left">
+        <h1 class="transfer-text">Withdraw</h1>
+    </div>
+        
+    <div class="transfer-card-right">
+        <%= form_with scope: :wallet, url: subtract_balance_path do |f| %>
+            <div class="transfer-input">
+            <span class="amount"><%= f.label :amount %></span>
+            <%= f.text_field :amount, class:"transfer-field" %>
+            <%= f.submit 'Withdraw', class:"transfer-out-money" %>
+            </div>
+        <% end %>
+    </div>
+        
+</div>
+<span><%= link_to 'Return', users_home_path %></span>
 <% end %>
 
 
-
-
-
 <% if @transaction_type === 'deposit' %>
-    <h1>Deposit</h1>
-    Balance <%= @wallet %>
+<span class="balance-text">Balance</span>
+<span class='wallet-amount'>₱<%= number_with_delimiter(@user.wallet.balance.to_i) %></span>
 
-    <%= form_with scope: :wallet, url: add_balance_path do |f| %>
-        <%= f.label :amount %>
-        <%= f.text_field :amount %>
-        <%= f.submit 'Deposit' %>
-    <% end %>
-    <%= link_to 'Home', users_home_path %>
+<div class="transfer-card">
+    <div class="transfer-card-left">
+        <h1 class="transfer-text">Deposit</h1>
+    </div>
+        
+    <div class="transfer-card-right">
+        <%= form_with scope: :wallet, url: add_balance_path do |f| %>
+            <div class="transfer-input">
+            <span class="amount"><%= f.label :amount %></span>
+            <%= f.text_field :amount, class:"transfer-field" %>
+            <%= f.submit 'Deposit', class:"transfer-in-money" %>
+            </div>
+        <% end %>
+    </div>
+        
+</div>
+<span><%= link_to 'Return', users_home_path %></span>
 <% end %>
