@@ -1,6 +1,7 @@
 
 <%= form_with(scope: :trade, url: buy_coin_path) do |form| %>
 
+    <h1>Buy Page</h1>
     <p>
       <%= form.label :size, style: "display: block" %>
       <%= form.number_field :size, step: :any %>

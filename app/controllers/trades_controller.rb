@@ -10,13 +10,14 @@ class TradesController < ApplicationController
         @api = CoinGecko::Client.retrieve_coin[:data]  
         @coin_id = params[:coin_id]
         @entry_price = params[:entry_price]
+        @exit_price = params[:exit_price]
         @size = params[:size]
         @transaction_type = params[:transaction_type]
         @trade = Trade.new
     end
 
     def buy_coin
-        @trade = Trade.new(trade_params)
+        @trade = Trade.new(buy_params)
         @trade.user_id = session[:user_id]
 
         @position = Position.find_by(coin_id: @trade.coin_id)
@@ -43,7 +44,7 @@ class TradesController < ApplicationController
         end
     end
     def sell_coin
-        @trade = Trade.new(trade_params)
+        @trade = Trade.new(sell_params)
         @trade.user_id = session[:user_id]
 
         @position = Position.find_by(coin_id: @trade.coin_id)
@@ -59,9 +60,9 @@ class TradesController < ApplicationController
 
 
         if @trade.save
-            redirect_to trade_path(coin_id: @trade.coin_id, entry_price: @trade.entry_price)
+            redirect_to trade_path(coin_id: @trade.coin_id, exit_price: @trade.exit_price)
         else
-            redirect_to trade_path(coin_id: @trade.coin_id, entry_price: @trade.entry_price)
+            redirect_to trade_path(coin_id: @trade.coin_id, exit_price: @trade.exit_price)
         end
     end
 
@@ -77,7 +78,11 @@ class TradesController < ApplicationController
         end
         wallet = User.find_by(id: session[:user_id]).wallet
     end
-    def trade_params
+    def buy_params
         params.require(:trade).permit(:entry_price, :coin_id, :size)
+    end
+
+    def sell_params
+        params.require(:trade).permit(:exit_price, :coin_id, :size)
     end
 end

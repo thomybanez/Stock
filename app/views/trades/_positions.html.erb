@@ -24,7 +24,7 @@
             <td><%= number_to_currency((api['current_price']-p.average_entry)*p.quantity) %></td>
             <td>
               <%= link_to "Buy", trade_path(coin_id: api['id'], entry_price: api['current_price'], transaction_type: 'buy') %>
-              <%= link_to "Sell", trade_path(coin_id: api['id'], entry_price: api['current_price'], transaction_type: 'sell') %>
+              <%= link_to "Sell", trade_path(coin_id: api['id'], exit_price: api['current_price'], transaction_type: 'sell') %>
             </td>
           </tr>
         <% end %>
