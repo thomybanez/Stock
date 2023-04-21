@@ -99,9 +99,12 @@
 
 .transaction-body{
     text-align: center;
+<<<<<<< HEAD
     opacity: 0.6;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 100;
+=======
+>>>>>>> 4309ae0 (Deposit and Withdraw UI Animation)
 }
 
 .deposit-animate {
