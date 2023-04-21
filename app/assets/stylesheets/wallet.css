@@ -100,11 +100,17 @@
 .transaction-body{
     text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
     opacity: 0.6;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 100;
 =======
 >>>>>>> 4309ae0 (Deposit and Withdraw UI Animation)
+=======
+    opacity: 0.6;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+>>>>>>> 9538861 (Improved Deposit Withdrawal UI Solo)
 }
 
 .deposit-animate {
