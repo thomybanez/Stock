@@ -1,4 +1,5 @@
 class Transfer < ApplicationRecord
+    validates :amount, numericality: { greater_than_or_equal_to: 0 }
 
-    has_one :wallet
+    belongs_to :wallet
 end

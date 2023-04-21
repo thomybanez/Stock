@@ -113,3 +113,12 @@ td{
 .focus-light{
     background-color: green;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+  }
+
+::-webkit-scrollbar-thumb {
+background-color: rgb(17, 16, 16);
+}

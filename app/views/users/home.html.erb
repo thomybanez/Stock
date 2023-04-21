@@ -28,26 +28,33 @@
 
             <div class='wallet-card-inner-right'>
                 <h6 class="opacity" style="text-align:center; margin-top: 10px;">Transactions History</h6>
-                <div>
-                    Deposit Withdraw History
-
-                    
+                <div style="height:100%; display: flex; align-items: flex-start; justify-content: center; overflow:scroll;">
+                        <table>
+                        <thead>
+                                <tr>
+                                    <th class="transaction-head">Type</th>
+                                    <th class="transaction-head">Amount</th>
+                                    <th class="transaction-head">Date</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <% Array(@transfer).each do |transfer| %>
+                                <tr>
+                                    <td class="transaction-body"><%= transfer.transaction_type %></td>
+                                    <td class="transaction-body"><%= transfer.amount %></td>
+                                    <td class="transaction-body"><%= transfer.created_at.strftime('%m-%d-%Y') %></td>
+                                </tr>
+                                <% end %>
+                        </tbody>
+                        </table>                    
 
                 <div>
             </div>
 
         </div>
-
-        
-
 </div>
-            
-
-
-
-
-        
-        
-
-
 </div>
+
+
+
+

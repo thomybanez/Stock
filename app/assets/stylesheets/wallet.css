@@ -89,5 +89,16 @@
     margin: 0 3px;    
 }
 
+.transaction-head{
+    font-size: 0.7em;
+    opacity: 0.5;
+    font-family: Arial, Helvetica, sans-serif;  
+    text-align: center;
+    padding: 1px 30px;    
+}
 
+.transaction-body{
+    text-align: center;
+
+}
   

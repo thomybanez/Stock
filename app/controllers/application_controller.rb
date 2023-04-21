@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   
     def set_user
       @user = User.find_by(id: session[:user_id])
+      @transfer = Wallet.find_by(user_id: session[:user_id]).transfers.order(created_at: :desc)
       @is_admin = @user&.is_admin
     end
   end
