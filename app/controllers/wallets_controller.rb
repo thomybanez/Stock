@@ -17,7 +17,7 @@ class WalletsController < ApplicationController
       
         if wallet.persisted?
           flash[:notice] = "Amount deposited successfully!"
-          redirect_to users_home_path
+          redirect_to users_home_path(animation_id: transfer.id, animation_type: transfer.transaction_type.downcase)
         else
           flash[:alert] = "No"
         end
@@ -41,7 +41,7 @@ class WalletsController < ApplicationController
       
         if wallet.persisted?
           flash[:notice] = "Amount withdrawn successfully!"
-          redirect_to users_home_path
+          redirect_to users_home_path(animation_id: transfer.id, animation_type: transfer.transaction_type.downcase)
         else
           flash[:alert] = "No"
         end

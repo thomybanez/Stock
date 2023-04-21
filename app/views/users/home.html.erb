@@ -38,11 +38,14 @@
                                 </tr>
                         </thead>
                         <tbody>
-                                <% Array(@transfer).each do |transfer| %>
+                                <% Array(@transfer).each do |transfer| %>                       
                                 <tr>
-                                    <td class="transaction-body"><%= transfer.transaction_type %></td>
-                                    <td class="transaction-body"><%= transfer.amount %></td>
-                                    <td class="transaction-body"><%= transfer.created_at.strftime('%m-%d-%Y') %></td>
+                                    <td class="transaction-body 
+                                    <%= params[:animation_id].to_i === transfer.id && params[:animation_type] === transfer.transaction_type.downcase ? transfer.transaction_type.downcase + "-animate" : "" %>"><%= transfer.transaction_type %></td>
+                                    <td class="transaction-body 
+                                    <%= params[:animation_id].to_i === transfer.id && params[:animation_type] === transfer.transaction_type.downcase ? transfer.transaction_type.downcase + "-animate" : "" %>"><%= transfer.amount %></td>
+                                    <td class="transaction-body 
+                                    <%= params[:animation_id].to_i === transfer.id && params[:animation_type] === transfer.transaction_type.downcase ? transfer.transaction_type.downcase + "-animate" : "" %>"><%= transfer.created_at.strftime('%m-%d-%Y') %></td>
                                 </tr>
                                 <% end %>
                         </tbody>

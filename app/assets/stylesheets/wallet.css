@@ -99,6 +99,30 @@
 
 .transaction-body{
     text-align: center;
-
 }
+
+.deposit-animate {
+    animation: deposit-fade-in 5s ease;
+  }
   
+  .withdraw-animate {
+    animation: withdraw-fade-in 5s ease;
+  }
+  
+  @keyframes deposit-fade-in {
+    from {
+      background-color: green;
+    }
+    to {
+      background-color: transparent;
+    }
+  }
+  
+  @keyframes withdraw-fade-in {
+    from {
+      background-color: red;
+    }
+    to {
+      background-color: transparent;
+    }
+  }
