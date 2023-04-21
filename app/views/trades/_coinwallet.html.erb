@@ -1,0 +1,8 @@
+
+<%= @coin_id.capitalize %>
+<%= number_with_delimiter(@entry_price) %>
+<% if session[:user_id] %>
+  <% if @user.wallet %>
+      Current Balance <%= @user.wallet.balance %>
+  <% end %>
+<% end %>

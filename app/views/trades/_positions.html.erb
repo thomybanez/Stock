@@ -1,28 +1,5 @@
 
-<%= form_with(scope: :trade, url: execute_path) do |form| %>
-  
-  <%= @coin_id.capitalize %>
-  <%= number_with_delimiter(@entry_price) %>
-  <% if session[:user_id] %>
-    <% if @user.wallet %>
-        Current Balance <%= @user.wallet.balance %>
-    <% end %>
-  <% end %>
-  
-    <p>
-      <%= form.label :size, style: "display: block" %>
-      <%= form.number_field :size, step: :any %>
-    </p>
-    <p style="display:none">
-      <%= form.label :coin_id, style: "display: block" %>
-      <%= form.text_field :coin_id, value:@coin_id %>
-      <%= form.label :entry_price, style: "display: block" %>
-      <%= form.number_field :entry_price, value:@entry_price %>
-    </p>
-    <p>
-      <%= form.submit "Trade" %>
-    </p>
-<% end %>
+
 <table>
   <thead>
     <tr>
