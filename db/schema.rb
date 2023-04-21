@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_19_073016) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_21_172434) do
   create_table "positions", force: :cascade do |t|
     t.integer "user_id"
     t.string "coin_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_073016) do
     t.boolean "is_ongoing", default: true
     t.integer "user_id"
     t.integer "position_id", null: false
+    t.decimal "pnl"
     t.index ["position_id"], name: "index_trades_on_position_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end

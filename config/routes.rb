@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   #Market
   get '/market', to: 'trades#market', as: 'market'
   get '/trade', to: 'trades#trade', as: 'trade'
-  post '/execute', to: 'trades#execute', as: 'execute'
+  post '/buy_coin', to: 'trades#buy_coin', as: 'buy_coin'
+  post '/sell_coin', to: 'trades#sell_coin', as: 'sell_coin'
+  get '/transactions', to: 'trades#transactions', as: 'transactions'
 
 
   #Wallet
