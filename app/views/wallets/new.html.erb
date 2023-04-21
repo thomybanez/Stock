@@ -7,7 +7,7 @@
 
     <%= form_with scope: :wallet, url: subtract_balance_path do |f| %>
         <%= f.label :amount %>
-        <%= f.text_field :amount %>
+        <%= f.number_field :amount %>
         <%= f.submit 'Withdraw' %>
     <% end %>
     <%= link_to 'Home', users_home_path %>
@@ -23,7 +23,7 @@
 
     <%= form_with scope: :wallet, url: add_balance_path do |f| %>
         <%= f.label :amount %>
-        <%= f.text_field :amount %>
+        <%= f.number_field :amount %>
         <%= f.submit 'Deposit' %>
     <% end %>
     <%= link_to 'Home', users_home_path %>

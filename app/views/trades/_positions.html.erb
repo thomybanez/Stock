@@ -22,7 +22,10 @@
             <td><%= number_with_delimiter(api['current_price']) %></td>
             <td><%= number_with_delimiter(p.average_entry.round(4)) %></td>
             <td><%= number_to_currency((api['current_price']-p.average_entry)*p.quantity) %></td>
-            <td><%= link_to "Trade Now", trade_path(coin_id: api['id'], entry_price: api['current_price']) %></td>
+            <td>
+              <%= link_to "Buy", trade_path(coin_id: api['id'], entry_price: api['current_price'], transaction_type: 'buy') %>
+              <%= link_to "Sell", trade_path(coin_id: api['id'], entry_price: api['current_price'], transaction_type: 'sell') %>
+            </td>
           </tr>
         <% end %>
       <% end %>

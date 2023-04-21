@@ -5,4 +5,8 @@ class Trade < ApplicationRecord
         self.user.wallet.balance -= entry_price * size
         self.user.wallet.save
     end
+    def sell
+        self.user.wallet.balance += entry_price * size
+        self.user.wallet.save
+    end
 end

@@ -1,6 +1,6 @@
 class TradesController < ApplicationController
     before_action :set_user
-    before_action :set_position, only: [:trade, :execute]
+    before_action :set_position, only: [:trade, :buy_coin]
     
     def market
         @api = CoinGecko::Client.retrieve_coin[:data]     
@@ -11,10 +11,11 @@ class TradesController < ApplicationController
         @coin_id = params[:coin_id]
         @entry_price = params[:entry_price]
         @size = params[:size]
+        @transaction_type = params[:transaction_type]
         @trade = Trade.new
     end
 
-    def execute
+    def buy_coin
         @trade = Trade.new(trade_params)
         @trade.user_id = session[:user_id]
 
@@ -27,11 +28,35 @@ class TradesController < ApplicationController
             @position.average_entry = ((@position.average_entry*(@position.quantity - @trade.size)+(@trade.entry_price*@trade.size))/@position.quantity)
             @position.save
             @position.reload
+            flash[:notice] = "Trade successful!"
         else
             puts "spa2"
+            flash[:notice] = "Trade successful! Added new position."
             new_position = Position.create(quantity: @trade.size, coin_id: @trade.coin_id, average_entry: @trade.entry_price, user_id: session[:user_id])
             @trade.position_id = new_position.id
         end
+
+        if @trade.save
+            redirect_to trade_path(coin_id: @trade.coin_id, entry_price: @trade.entry_price)
+        else
+            redirect_to trade_path(coin_id: @trade.coin_id, entry_price: @trade.entry_price)
+        end
+    end
+    def sell_coin
+        @trade = Trade.new(trade_params)
+        @trade.user_id = session[:user_id]
+
+        @position = Position.find_by(coin_id: @trade.coin_id)
+        if @position.quantity > @trade.size
+            @trade.position_id = @position.id
+            @position.quantity -= @trade.size
+            @position.save
+            @position.reload
+            flash[:notice] = "Trade successful!"
+        else
+            flash[:alert] = "Insufficient quantity."
+        end
+
 
         if @trade.save
             redirect_to trade_path(coin_id: @trade.coin_id, entry_price: @trade.entry_price)
