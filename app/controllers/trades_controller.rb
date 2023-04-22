@@ -2,8 +2,8 @@ class TradesController < ApplicationController
     before_action :set_user
     before_action :set_position, only: [:trade, :buy_coin]
     
-    def market
-        @api = CoinGecko::Client.retrieve_coin[:data]     
+    def market        
+            @api = CoinGecko::Client.retrieve_coin[:data]     
     end
 
     def trade
@@ -76,9 +76,11 @@ class TradesController < ApplicationController
     def set_user
         user_id = session[:user_id]
         if user_id
-            @user = User.find(user_id)
+          @user = User.find(user_id)
+          @wallet = @user.wallet
+        else
+          redirect_to sessions_signin_path
         end
-        wallet = User.find_by(id: session[:user_id]).wallet
     end
     def buy_params
         params.require(:trade).permit(:entry_price, :coin_id, :size)

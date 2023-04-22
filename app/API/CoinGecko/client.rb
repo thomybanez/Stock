@@ -8,7 +8,7 @@ module CoinGecko
         end
         def self.retrieve_coin_data
             Request.call(
-                http_method:'get',
+                http_method:'get',                
                 endpoint:`/simple/price?ids=#{@coin_id}&vs_currencies=usd`
             )
         end
