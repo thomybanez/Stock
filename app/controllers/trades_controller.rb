@@ -50,6 +50,7 @@ class TradesController < ApplicationController
 
         if @position.quantity >= @trade.size
             @trade.position_id = @position.id
+            @trade.pnl = (@trade.exit_price - @position.average_entry) * @trade.size
             @position.quantity -= @trade.size
             @position.save
             @position.reload
