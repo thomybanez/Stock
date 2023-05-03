@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Wallet, type: :model do
+
   context "when creating a new wallet" do
     let(:user) { User.create(email: "john@yahoo.com") }
     let(:wallet) { Wallet.new(user: user, balance: -100) }
@@ -33,8 +34,6 @@ RSpec.describe Wallet, type: :model do
   
       expect(wallet.user_id).to eq(user.id)      
     end
-  end
-
-  
+  end  
 
 end

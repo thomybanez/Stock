@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-
- 
+RSpec.describe User, type: :model do 
 
     describe 'create' do
         before { User.delete_all }
@@ -13,6 +11,5 @@ RSpec.describe User, type: :model do
             expect(User.count).to eq(1) # Ensure that there is one User in the database
             expect(User.first.email).to eq(user.email) # Ensure that the User in the database has the same email as the one we created
         end
-    end
-
+    end    
 end
