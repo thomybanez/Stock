@@ -1,7 +1,21 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+#rspec
+gem 'rspec'
+gem 'rspec-rails', '~> 5.0.0'
+
+#factory bot for rspec
+gem 'factory_bot_rails'
+
+#smtp
+gem 'net-smtp'
+
 ruby "3.2.2"
+#simple cov
+group :test do
+  gem 'simplecov', require: false
+end
 
 # dotenv
 gem 'dotenv-rails', groups: [:development, :test]

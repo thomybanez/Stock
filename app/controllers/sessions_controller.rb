@@ -35,11 +35,24 @@ class SessionsController < ApplicationController
         @user = User.new(user_params)
       
         if @user.save
-          flash[:notice] = "Signed up successfully!"
+          @user.generate_verification_token
+          UserMailer.with(user: @user).verification_email(@user).deliver_now          
+          flash[:notice] = "Signed up successfully! and Check Your Email"
           redirect_to users_home_path
         else
           render :signup, status: :unprocessable_entity
         end
+    end
+
+    def verify_email
+      user = User.find_by(verification_token: params[:token])
+  
+      if user
+        user.update(is_verified: true)
+        redirect_to root_path, notice: 'Your email has been verified'
+      else
+        redirect_to root_path, alert: 'Invalid verification link'
+      end
     end
 
     def logout

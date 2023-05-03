@@ -1,0 +1,7 @@
+Verify Your Email Address
+
+Hi <%= @user %>,
+
+Thank you for signing up for our service. To complete the registration process, please click the following link to verify your email address:
+
+<%= verification_url(@user.verification_token) %>

@@ -2,12 +2,15 @@
 
 one:
   email: MyString
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('password') %>
   is_admin: false
   is_verified: false
+  verification_token: nil
 
 two:
   email: MyString
-  password: MyString
+  password_digest: <%= BCrypt::Password.create('password') %>
   is_admin: false
   is_verified: false
+  verification_token: nil
+

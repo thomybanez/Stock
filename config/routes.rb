@@ -43,5 +43,7 @@ Rails.application.routes.draw do
   post '/subtract_balance', to: 'wallets#subtract_balance', as: 'subtract_balance'
   post '/add_balance', to: 'wallets#add_balance', as: 'add_balance'
 
+  #Mailer
+  get '/verify_email/:verification_token', to: 'sessions#verify_email', as: 'verify_email'
 
 end

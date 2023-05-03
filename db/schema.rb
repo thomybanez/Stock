@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_21_070511) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_26_114320) do
   create_table "positions", force: :cascade do |t|
     t.integer "user_id"
     t.string "coin_id"
@@ -49,7 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_21_070511) do
     t.boolean "is_verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "verification_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["verification_token"], name: "index_users_on_verification_token"
   end
 
   create_table "wallets", force: :cascade do |t|
