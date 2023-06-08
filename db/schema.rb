@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_26_114320) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_21_172434) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "positions", force: :cascade do |t|
     t.integer "user_id"
     t.string "coin_id"
@@ -28,19 +31,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_114320) do
     t.string "coin_id"
     t.decimal "size", default: "0.0"
     t.boolean "is_ongoing", default: true
-    t.integer "user_id"
-    t.integer "position_id", default: 1, null: false
+    t.bigint "user_id"
+    t.bigint "position_id", null: false
     t.decimal "pnl"
     t.index ["position_id"], name: "index_trades_on_position_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
-  end
-
-  create_table "transfers", force: :cascade do |t|
-    t.string "transaction_type"
-    t.decimal "amount"
-    t.integer "wallet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,9 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_26_114320) do
     t.boolean "is_verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "verification_token"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["verification_token"], name: "index_users_on_verification_token"
   end
 
   create_table "wallets", force: :cascade do |t|
