@@ -6,17 +6,11 @@ class CreateTrades < ActiveRecord::Migration[7.0]
 	t.string :coin_id
 	t.decimal :size, default:0
 	t.boolean :is_going, default:true
-
 	t.decimal :quantity
-	t.decimal :average_entry
-
-
-	size:decimal,default:0
-	is_going:boolean,default:true
-	
+	t.decimal :average_entry	
 
 	def change
-    		add_reference :trades, :user, null: true, foreign_key:true
+    	add_reference :trades, :user, null: true, foreign_key:true
   	end
 
 	def change
