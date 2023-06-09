@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
       
         if @user.save
           @user.generate_verification_token
-          UserMailer.with(user: @user).verification_email(@user).deliver_now          
+          #UserMailer.with(user: @user).verification_email(@user).deliver_now          
           flash[:notice] = "Signed up successfully! and Check Your Email"
           redirect_to users_home_path
         else
