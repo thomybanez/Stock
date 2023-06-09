@@ -1,16 +1,17 @@
-<table>
+<div class="body_market">
+<table class="table_market">
     <span>Data provided by <a href="https://www.coingecko.com/">CoinGecko</a></span>
-    <thead>
+    <thead class="tbl-header">
         <tr>
             <th>Rank</th>
             <th>Coin</th>
             <th>Price</th>
             <th>24h</th>
             <th>24h Volume</th>
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tbl-content">
         <% @api.each do |coin| %>
             <tr>
                 <td><%= coin["market_cap_rank"] %></td>
@@ -21,8 +22,9 @@
                 <td>$<%= coin['current_price'].round(4) %></td>
                 <td><%= coin['price_change_percentage_24h'].round(2) %><span>%</span></td>
                 <td><span>$</span><%= number_to_human(coin['total_volume']) %></td>
-                <td><%= link_to 'Trade', trade_path(entry_price: coin['current_price'], coin_id: coin['id']) %></td>
+                <td><%= link_to 'Trade', trade_path(entry_price: coin['current_price'], coin_id: coin['id'], transaction_type: 'buy') %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+</div>

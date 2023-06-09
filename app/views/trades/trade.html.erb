@@ -1,3 +1,11 @@
 
-
-<%= render "trade" %>
+<%= render "coinwallet" %>
+    <%= link_to "Buy", trade_path(coin_id: @coin_id, entry_price: @entry_price, transaction_type: 'buy'), class: "green" %>
+    <%= link_to "Sell", trade_path(coin_id: @coin_id, exit_price: @exit_price, transaction_type: 'sell'), class: "red" %>
+<% if @transaction_type === 'buy' %>
+    <%= render "buy" %> 
+<% end %>
+<% if @transaction_type === 'sell' %>
+    <%= render "sell" %>
+<% end %>
+<%= render "positions" %>

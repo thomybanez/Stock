@@ -1,0 +1,19 @@
+
+<%= form_with(scope: :trade, url: sell_coin_path) do |form| %>
+
+  <h1>Sell Page</h1>
+
+    <p>
+      <%= form.label :size, style: "display: block" %>
+      <%= form.number_field :size, step: :any %>
+    </p>
+    <p style="display:none">
+      <%= form.label :coin_id, style: "display: block" %>
+      <%= form.text_field :coin_id, value:@coin_id %>
+      <%= form.label :exit_price, style: "display: block" %>
+      <%= form.number_field :exit_price, value:@exit_price %>
+    </p>
+    <p>
+      <%= form.submit "Trade" %>
+    </p>
+<% end %>

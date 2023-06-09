@@ -9,9 +9,6 @@ module CoinGecko
         def self.retrieve_coin_data
             Request.call(
                 http_method:'get',
-<<<<<<< HEAD
-
-                endpoint:'/coins/bitcoin/ohlc?vs_currency=usd&days=30'
                 endpoint:`/simple/price?ids=#{@coin_id}&vs_currencies=usd`
             )
         end

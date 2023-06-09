@@ -1,0 +1,38 @@
+
+<div class="body_transactions">
+<table class="table_transactions">
+  <thead>
+    <tr>
+      <th>Coin</th>
+      <th>Quantity</th>
+      <th>Mark Price</th>
+      <th>Ave Price</th>
+      <th>Profit/Loss</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+<% if @position.length > 0 %>
+  <tbody>
+    <% @position.each do |p| %>
+      <% @api.each do |api| %>
+        <% if p.quantity > 0 && api['id'] === p.coin_id %>
+          <tr>
+            <td><%= p.coin_id.capitalize %></td>
+            <td><%= p.quantity %></td>
+            <td><%= number_with_delimiter(api['current_price']) %></td>
+            <td><%= number_with_delimiter(p.average_entry.round(4)) %></td>
+            <td><%= number_to_currency((api['current_price']-p.average_entry)*p.quantity) %></td>
+            <td>
+              <%= link_to "Buy", trade_path(coin_id: api['id'], entry_price: api['current_price'], transaction_type: 'buy'), class: "green" %>
+              <%= link_to "Sell", trade_path(coin_id: api['id'], exit_price: api['current_price'], transaction_type: 'sell'), class: "red" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+  </table>
+<% else %>
+  <p>No transactions yet.</p>
+<% end %>
+</div>

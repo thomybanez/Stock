@@ -29,10 +29,12 @@ Rails.application.routes.draw do
   post '/signup/submit', to: 'sessions#signup_submit', as: 'sessions_signup_submit'
 
 
-  #Market
+  #Market 
   get '/market', to: 'trades#market', as: 'market'
   get '/trade', to: 'trades#trade', as: 'trade'
-  post '/execute', to: 'trades#execute', as: 'execute'
+  post '/buy_coin', to: 'trades#buy_coin', as: 'buy_coin'
+  post '/sell_coin', to: 'trades#sell_coin', as: 'sell_coin'
+  get '/transactions', to: 'trades#transactions', as: 'transactions'
 
 
   #Wallet
