@@ -9,8 +9,6 @@ class User < ApplicationRecord
   has_many :trades
   has_one :wallet, class_name: 'Wallet'
 
-  
-
   def verify_email(verification_token)
     if self.verification_token == verification_token
       self.is_verified = true
@@ -20,15 +18,13 @@ class User < ApplicationRecord
     end
   end
 
+  def generate_verification_token
+    self.verification_token = SecureRandom.urlsafe_base64
+  end
+
   private
 
   def create_user_wallet
     self.create_wallet
   end
-
-  def generate_verification_token
-    self.verification_token = SecureRandom.urlsafe_base64
-  end
-
-
 end
