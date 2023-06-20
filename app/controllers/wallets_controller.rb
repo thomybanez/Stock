@@ -1,4 +1,5 @@
 class WalletsController < ApplicationController
+    before_action :set_wallet, only: [:new]
 
     #user balance deposit
     def add_balance
@@ -49,19 +50,12 @@ class WalletsController < ApplicationController
 
     #user balance type of transaction
     def new
-        @wallet = User.find_by(id: session[:user_id]).wallet.balance
-        @transaction_type = params[:transaction_type]
-
-        
+        @wallet = @chongkoyla.balance
+        @transaction_type = params[:transaction_type]  
     end
-
-    def create
-        @wallet = Wallet.all
-    end
-    
     private
 
     def set_wallet
-        @wallet = Wallet.find(params[:id])
+        @chongkoyla = User.find_by(id: session[:user_id]).wallet
     end
 end
