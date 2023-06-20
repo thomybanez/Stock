@@ -66,5 +66,7 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Uncomment if you wish to allow Action Cable access from any origin.
+  
   # config.action_cable.disable_request_forgery_protection = true
+  config.secret_key_base = '4e35279a2ca3cecc2a73a08192878f586b4a2edc5de5a13779a2614f844c8eb57e16c12ff2e5a9928b1a48cbcbbc99c0d090503c0c1b94318129c597d37515c0'
 end
