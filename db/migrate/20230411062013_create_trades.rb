@@ -10,11 +10,6 @@ class CreateTrades < ActiveRecord::Migration[7.0]
 	t.decimal :quantity
 	t.decimal :average_entry
 
-
-	size:decimal,default:0
-	is_going:boolean,default:true
-	
-
 	def change
     		add_reference :trades, :user, null: true, foreign_key:true
   	end
