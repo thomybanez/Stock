@@ -1,12 +1,13 @@
-<table>
+<div class="body_transactions">
+<table class="table_transactions">
     <thead>
         <tr>
-            <td>Coin</td>
-            <td>Size</td>
-            <td>Entry Price</td>
-            <td>Exit Price</td>
-            <td>Profit/Loss</td>
-            <td>Transaction Date</td>
+            <th>Coin</th>
+            <th>Size</th>
+            <th>Entry Price</th>
+            <th>Exit Price</th>
+            <th>Profit/Loss</th>
+            <th>Transaction Date</th>
         </tr>
     </thead>
     <tbody>
@@ -21,9 +22,10 @@
                     <td></td>
                     <td><%= t.exit_price %></td>
                 <% end %>
-                <td>La pa</td>
+                <td><%= number_to_currency(t.pnl) %></td>
                 <td><%= t.created_at.in_time_zone('Asia/Manila').strftime('%m-%d-%Y %I:%M %p')%></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+</div>

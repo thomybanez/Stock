@@ -1,30 +1,10 @@
 
 
 <% if @transaction_type === 'withdraw' %>
-
-    <h1><%= @transaction_type %></h1>
-    Balance <%= @wallet %>  
-
-    <%= form_with scope: :wallet, url: subtract_balance_path do |f| %>
-        <%= f.label :amount %>
-        <%= f.number_field :amount %>
-        <%= f.submit 'Withdraw' %>
-    <% end %>
-    <%= link_to 'Home', users_home_path %>
+    <%= render "withdraw_form" %>
 <% end %>
 
 
-
-
-
 <% if @transaction_type === 'deposit' %>
-    <h1><%= @transaction_type %></h1>
-    Balance <%= @wallet %>
-
-    <%= form_with scope: :wallet, url: add_balance_path do |f| %>
-        <%= f.label :amount %>
-        <%= f.number_field :amount %>
-        <%= f.submit 'Deposit' %>
-    <% end %>
-    <%= link_to 'Home', users_home_path %>
+    <%= render "withdraw_form" %>
 <% end %>

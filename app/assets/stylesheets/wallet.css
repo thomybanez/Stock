@@ -1,0 +1,131 @@
+
+
+.wallet-card{
+    margin-top: 20vh;
+    background-color: rgb(31, 31, 36);
+    height: 45vh;
+    width: 39.5vw;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.wallet-card-inner{
+    display: flex;
+    background-color: rgb(20, 20, 25);
+    height: 25vh;
+    width: 36vw;
+    border-radius: 20px;    
+    margin: 1vh 1vw;
+    border: 10px solid rgb(20, 20, 25);
+}
+
+.wallet-card-inner-left{
+    flex: 0.4;
+}
+
+.wallet-card-inner-right{
+    flex: 0.6;
+    background-color: rgb(31, 31, 36);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0.3;
+    margin-left: 2vw;
+    font-size: 1.2em;
+    font-family: Lato;
+    font-weight: 700;
+    height: 100%;
+    width: 90%;
+}
+
+.opacity{
+    opacity: 0.5;
+    font-family: Lato;
+    letter-spacing: 1.1px;    
+}
+
+.mt{
+    margin-top: 5vh;
+}
+
+.ml{
+    margin-left: 1vw
+}
+
+.fs{
+    font-size: 0.5em;
+}
+
+.wallet-amount{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    font-family: 'Playfair Display', serif;
+}
+
+.wallet-button-wrapper{
+    display: flex;
+}
+
+.wallet-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    border-radius: 10px;
+    height: 5vh;
+    width: 5vw;
+    margin: 0 3px;    
+}
+
+.transaction-head{
+    font-size: 0.7em;
+    opacity: 0.5;
+    font-family: Arial, Helvetica, sans-serif;  
+    text-align: center;
+    padding: 1px 30px;    
+}
+
+.transaction-body{
+    text-align: center;
+    opacity: 0.6;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+}
+
+.deposit-animate {
+    animation: deposit-fade-in 5s ease;
+  }
+  
+  .withdraw-animate {
+    animation: withdraw-fade-in 5s ease;
+  }
+  
+  @keyframes deposit-fade-in {
+    from {
+      background-color: green;
+    }
+    to {
+      background-color: transparent;
+    }
+  }
+  
+  @keyframes withdraw-fade-in {
+    from {
+      background-color: red;
+    }
+    to {
+      background-color: transparent;
+    }
+  }
